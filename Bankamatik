@@ -1,0 +1,96 @@
+import time
+import math
+
+print("Hoşgeldiniz")
+time.sleep(2)
+
+print("Lütfen kartınızı takınız!")
+time.sleep(2)
+
+print("Kart Algılandı işlemler yükleniyor...")
+time.sleep(2)
+sifre="1234"
+bakiye=1000
+time.sleep(2)
+while True:
+        parola=input("Şifrenizi Giriniz: ")
+        print("Şifre doğrulanıyor lütfen bekleyiniz...")
+        time.sleep(4)
+        if (sifre==parola):
+            print("Şifre doğrulama başarılı ilerleme sağlanıyor....")
+            time.sleep(4)
+            break
+            
+        elif(sifre!=parola):
+            print("Hatalı şifre tekrar deneyiniz.")
+        else:
+            print("Tekrar deneyiniz.")
+
+while True:
+    ana=print("""
+                    |---------------------|
+                    |      GK Bank        |
+                    | (1) Para Yatırma    |
+                    | (2) Para Çekme      |
+                    | (3) Bakiye Sorgula  |
+                    |    (4) Çıkış        |
+                    |---------------------|
+""")
+    
+
+    islem=int(input("Yapmak istediğiniz işlem nedir? "))
+    if islem==1:
+        print("Para yatırma ekranına yönlendiriliyorsunuz....")
+        time.sleep(3)
+        yatir=int(input("Yatırmak istediğiniz tutar nedir: "))
+        time.sleep(3)
+        bakiye = bakiye + yatir
+        print(f"{yatir} TL tutarındaki yatırma işleminiz başarılı.")
+        time.sleep(2)
+        
+        print("Yeni bakiyeniz: {} TL".format(bakiye))
+        time.sleep(5)
+        
+        print("Ana sayfaya yönlendiriliyorsunuz")
+        time.sleep(5)
+        print(ana)
+
+
+
+    elif(islem==2):
+        print("Para çekme ekranına yönlendiriliyorsunuz....")    
+        time.sleep(3)
+        cek=int(input("Çekmek istediğiniz tutar: "))
+        time.sleep(3)
+        if (bakiye - cek < 0):
+            print("Yetersiz bakiye...")
+            time.sleep(3)
+            continue
+        bakiye -= cek
+
+        print(f"{cek} TL tutarındaki para çekme işleminiz başarılı.")
+        time.sleep(2)
+        
+        print("Yeni bakiyeniz: {}".format(bakiye))
+        time.sleep(5)
+        print("Ana sayfaya yönlendiriliyorsunuz")
+        time.sleep(5)
+        print(ana)
+
+    elif(islem==3):
+        print("Bakiye sorgulama ekranına yönlendiriliyorsunuz....")
+        time.sleep(3)
+        print(f"Bakiyeniz: {bakiye}")
+        time.sleep(5)
+        
+        print("Ana sayfaya yönlendiriliyorsunuz")
+        time.sleep(5)
+        print(ana)
+    elif islem==4:
+        print("Yine bekleriz çıkış yapılıyor.")
+        time.sleep(4)
+        break  
+        exit
+    else:
+        print("Hatalı giriş yaptınız")
+        
