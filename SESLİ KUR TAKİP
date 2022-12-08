@@ -1,0 +1,22 @@
+from forex_python.converter import CurrencyRates
+from playsound import playsound
+import time
+
+c=CurrencyRates()
+mem=kur=c.get_rate('USD','TRY')
+
+while True:
+    print(f"DOLAR ANLIK FİYATI: {mem} TL ")
+    
+    kur=c.get_rate('USD','TRY')
+   
+    if kur > mem:
+        print("Dolar Arttı")
+        playsound('bagirma.mp3')
+        mem=kur
+    elif kur< mem:
+        print("Dolar Düştü")
+        playsound('gulme.mp3')
+        mem=kur
+
+    time.sleep(1)
